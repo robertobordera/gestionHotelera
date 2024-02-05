@@ -1,0 +1,16 @@
+{% extends "base.njk" %}
+{% block titulo %}Limpiezas | Listado
+{% endblock %}
+{% block contenido %}
+    <h1>Limpiezas de habitacion {{ idHabitacion }}</h1>
+
+    {% if (session and session.usuario) %}
+            <a class="btn btn-primary" href="nueva/{{ idHabitacion }}">Nueva Limpieza</a>
+    {% endif %}
+    
+    {% for limpieza in limpiezas %}
+        <p>{{ limpieza.fechaHora }}</p>
+        <p>{{ limpieza.observaciones }}</p>
+        <hr>
+        {% endfor %}
+    {% endblock %}

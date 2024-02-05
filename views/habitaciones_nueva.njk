@@ -1,0 +1,51 @@
+{% extends "base.njk" %}
+{% block titulo %}Contactos | Nuevo{% endblock %}
+{% block contenido %}
+    <h2>Formulario de Habitación</h2>
+    {% if errores.general %}
+        <p class="alert alert-danger">{{ errores.general }}</p>
+    {% endif %}
+    <form action="/habitaciones" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="numeroHabitacion">Número de Habitación:</label>
+            {% if errores.numero %}
+                <p class="text-danger">{{ errores.numero }}</p>
+            {% endif %}
+            <input type="number" class="form-control" id="numeroHabitacion" name="numero" ></div>
+            <div class="form-group">
+                <label for="tipoHabitacion">Tipo de Habitación:</label>
+                {% if errores.tipo %}
+                    <p class="text-danger">{{ errores.tipo }}</p>
+                {% endif %}
+                <select class="form-control" id="tipoHabitacion" name="tipo">
+                    <option value="individual">Individual</option>
+                    <option value="doble">Doble</option>
+                    <option value="familiar">Familiar</option>
+                    <option value="suite">Suite</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción de la Habitación:</label>
+                {% if errores.descripcion %}
+                    <p class="text-danger">{{ errores.descripcion }}</p>
+                {% endif %}
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="precioNoche">Precio por Noche:</label>
+                {% if errores.precio %}
+                    <p class="text-danger">{{ errores.precio }}</p>
+                {% endif %}
+                <input
+                    type="number"
+                    class="form-control"
+                    id="precioNoche"
+                    name="precio"
+                    step="0.01"
+                    ></div>
+                <div class="form-group">
+                    <label for="imagen">Imagen de la Habitación (opcional):</label>
+                    <input type="file" class="form-control-file" id="imagen" name="imagen"></div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            {% endblock %}

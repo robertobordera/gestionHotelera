@@ -1,0 +1,15 @@
+{%extends "base.njk" %}
+
+{%block titulo%}Habitaciones | Listado {% endblock %}
+
+{% block contenido %}
+    <div class="row">
+    {% for habitacion in habitaciones %}
+        <div class="col-3 mb-2 caja">
+            <p class="text-dark">Habitacion {{habitacion.numero}}</p>
+            <p>{{habitacion.ultimaLimpieza}}</p>
+             <a class="btn btn-primary" href="/habitaciones/{{ habitacion.id }}">Ver ficha</a>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

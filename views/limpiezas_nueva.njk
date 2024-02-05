@@ -1,0 +1,21 @@
+{% extends "base.njk" %}
+
+{% block titulo %}Contactos | Nuevo{% endblock %}
+
+{% block contenido %}
+    <h2>Limpiezas de Habitacion {{idHabitacion}}</h2>
+    {% if errores.general %}
+        <p class="alert alert-danger">{{ errores.general }}</p>
+    {% endif %}
+    <form action="/limpiezas/{{idHabitacion}}" method="post">
+        <div class="form-group">
+            <label for="fechaLimpieza">Fecha de la Limpieza:</label>
+            <input type="date" class="form-control" id="fechaLimpieza" name="fechaHora" required="true">
+        </div>
+        <div class="form-group">
+            <label for="observaciones">Observaciones:</label>
+            <textarea class="form-control" id="observaciones" name="observaciones" rows="4" ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+{% endblock %}

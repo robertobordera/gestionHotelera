@@ -1,0 +1,16 @@
+{% extends "base.njk" %}
+
+{% block titulo %}Habitacion | Error{% endblock %}
+
+{% block contenido %}
+
+    <h1>Error</h1>
+    <div class="alert alert-danger">
+        {% if error %}
+            {{ error }}
+        {% else %}
+            No existe la habitacion indicada
+        {% endif %}
+    </div>
+
+{% endblock %}
